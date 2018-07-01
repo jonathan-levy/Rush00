@@ -3,6 +3,10 @@ session_start();
 ?>
 <!doctype html>
 
+<style>
+
+</style>
+
 <html>
 	<head>
 		<link rel="stylesheet" href="index.css">

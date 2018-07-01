@@ -91,23 +91,50 @@ function	display_cart_loop()
 
 function admin_inventory_loop($csv_cars)
 {
-	echo "<table>";
+	echo "<table id='inventory'>";
 	foreach($csv_cars as $key=>$value)
 	{
-		echo "<tr>";
-			echo "<td>".$value[0]."</td>";
-			echo "<td>".$value[1]."</td>";
-			echo "<td>".$value[2]."</td>";
-			echo "<td>".$value[3]."</td>";
-			echo "<td>".$value[4]."</td>";
-			echo "<td>".$value[5]."</td>";
-			echo "<td>".$value[6]."</td>";
-			echo "<td>".$value[7]."</td>";
-			echo "<td>".$value[8]."</td>";
-			echo "<td>".$value[9]."</td>";
-			echo "<td>".$value[10]."</td>";
-			echo "<td>".$value[11]."</td>";
-		echo "</tr>";
+		if ($key == 0)
+		{	
+			echo "<tr>";
+				echo "<th>".$value[0]."</th>";
+				echo "<th>".$value[1]."</th>";
+				echo "<th>".$value[2]."</th>";
+				echo "<th>".$value[3]."</th>";
+				echo "<th>".$value[4]."</th>";
+				echo "<th>".$value[5]."</th>";
+				echo "<th>".$value[6]."</th>";
+				echo "<th>".$value[7]."</th>";
+				echo "<th>".$value[8]."</th>";
+				echo "<th>".$value[9]."</th>";
+				echo "<th>".$value[10]."</th>";
+				echo "<th>".$value[11]."</th>";
+				echo "<th>Edit</th>";
+			echo "</tr>";
+		}
+		else
+		{
+			echo "<tr>";
+				echo "<td>".$value[0]."</td>";
+				echo "<td>".$value[1]."</td>";
+				echo "<td>".$value[2]."</td>";
+				echo "<td>".$value[3]."</td>";
+				echo "<td>".$value[4]."</td>";
+				echo "<td>".$value[5]."</td>";
+				echo "<td>".$value[6]."</td>";
+				echo "<td>".$value[7]."</td>";
+				echo "<td>".$value[8]."</td>";
+				echo "<td>".$value[9]."</td>";
+				echo "<td>".$value[10]."</td>";
+				echo "<td>".$value[11]."</td>";
+				echo "<td>";
+					echo "<form action='edit_inventory.php' method='post' class='col_buttons'>";
+					echo "<input type=hidden name='car_id' value=".$value[0].">";
+					echo "<input type='submit' class='button button2' value='Edit'/>";
+				echo "</form>";
+				echo "</td>";
+			echo "</tr>";
+		}
 	}
 	echo "</table>";
 }
@@ -116,17 +143,23 @@ function admin_inventory_loop($csv_cars)
 function admin_users_loop()
 {
 	$users =  unserialize(file_get_contents('login/private/passwd'));
-	echo "<table>";
-	echo "<tr>";
-		echo "<td>User</td>";
-		echo "<td>Password</td>";
-	echo "</tr>";
-
+	echo "<table id='inventory'>";
+		echo "<tr>";
+			echo "<th>User</td=h>";
+			echo "<th>Password</th>";
+			echo "<th>Edit</th>";
+		echo "</tr>";
 	foreach($users as $key=>$value)
 	{
 		echo "<tr>";
 			echo "<td>".$value['login']."</td>";
 			echo "<td>".$value['passwd']."</td>";
+			echo "<td>";
+				echo "<form action='delete_users.php' method='post' class='col_buttons'>";
+					echo "<input type=hidden name='car_id' value=".$value[0].">";
+					echo "<input type='submit' class='button button2' value='Delete'/>";
+				echo "</form>";
+			echo "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
