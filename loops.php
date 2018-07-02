@@ -11,7 +11,9 @@ function	display_top_navbar()
 		echo "<div class='topnav'>";
 			echo "<a class='active' href='/index.php'>Home</a>";
 			echo "<a href='/shop.php'>Inventory</a>";
-			echo "<a href='/cart.php'>Cart </a>";
+			echo "<a href='/cart.php'>Cart";
+			echo "<p id='car_quantity_header'>".$_SESSION['user_car_quantity']."</p>";
+			echo "</a>";
 			if ($_SESSION['admin'])
 				echo "<a href='/admin.php'>Admin</a>";
 			echo "<a href='/login.php'>Login</a>";
@@ -58,7 +60,7 @@ function	inventory_loop($csv_cars)
 				echo "</div>";
 				echo "<form  action='add_to_cart.php' method='post' class='col_buttons'>";
 					echo "<input type=hidden name='car_id' value=".$value[0].">";
-					echo "<input type='number' name='quantity' min='1' max='5'/>";
+					echo "<input type='number' name='quantity' min='1' max='5' value='1' />";
 					echo "<input type='submit' class='button button2' value='Add to Cart'/>";
 				echo "</form>";
 			echo "</div>";
@@ -87,6 +89,7 @@ function	display_cart_loop()
 				echo "</div>";
 				echo "<form  action='remove_from_cart.php' method='post' class='col_buttons'>";
 					echo "<input type=hidden name='car_id' value=".$value[0].">";
+					echo "<input type='number' name='quantity' min='1' max='5' value=".$value[12].">";
 					echo "<input type='submit' class='button button2' value='Remove'/>";
 				echo "</form>";
 			echo "</div>";

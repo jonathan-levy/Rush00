@@ -30,7 +30,7 @@ hr {
 		<hr>
 		<h2>Quantity: <?php echo "<p>".$_SESSION['user_car_quantity']."</p>" ?> Total: <?php echo "$".number_format($_SESSION['cart_total']) ?> </h2>
 		<form  action='purchase.php' method='post' class='col_buttons'>
-			<input type=hidden name='car_id' value=".$value[0].">
+			<input type=hidden name='car_id' value=".value[12].">
 			<input type='submit' class='button button2' value='Purchase'/>
 		</form>
 	</body> 

@@ -28,7 +28,7 @@ function	write_to_csv($array, $file_csv)
 	fclose($file);
 }
 
-function	load_n_modify_csv($file_path)
+function	load_n_modify_csv($file_path, $qty)
 {
 	$csv_user= array_map('str_getcsv', file($file_path));
 	$_SESSION['item_name'] = $_POST['car_id'];
@@ -37,7 +37,10 @@ function	load_n_modify_csv($file_path)
 	{
 		if ($_POST['car_id'] === $value[0])
 		{
+			$value[12] = $qty;
+			print(value[12]);
 			$csv_user[] = $value;
+			print_r($csv_user);
 			write_to_csv($csv_user, $file_path);
 		}
 	}
