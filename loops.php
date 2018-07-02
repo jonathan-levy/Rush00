@@ -92,23 +92,50 @@ function	display_cart_loop()
 
 function admin_inventory_loop($csv_cars)
 {
-	echo "<table>";
+	echo "<table id='inventory'>";
 	foreach($csv_cars as $key=>$value)
 	{
-		echo "<tr>";
-			echo "<td>".$value[0]."</td>";
-			echo "<td>".$value[1]."</td>";
-			echo "<td>".$value[2]."</td>";
-			echo "<td>".$value[3]."</td>";
-			echo "<td>".$value[4]."</td>";
-			echo "<td>".$value[5]."</td>";
-			echo "<td>".$value[6]."</td>";
-			echo "<td>".$value[7]."</td>";
-			echo "<td>".$value[8]."</td>";
-			echo "<td>".$value[9]."</td>";
-			echo "<td>".$value[10]."</td>";
-			echo "<td>".$value[11]."</td>";
-		echo "</tr>";
+		if ($key == 0)
+		{	
+			echo "<tr>";
+				echo "<th>".$value[0]."</th>";
+				echo "<th>".$value[1]."</th>";
+				echo "<th>".$value[2]."</th>";
+				echo "<th>".$value[3]."</th>";
+				echo "<th>".$value[4]."</th>";
+				echo "<th>".$value[5]."</th>";
+				echo "<th>".$value[6]."</th>";
+				echo "<th>".$value[7]."</th>";
+				echo "<th>".$value[8]."</th>";
+				echo "<th>".$value[9]."</th>";
+				echo "<th>".$value[10]."</th>";
+				echo "<th>".$value[11]."</th>";
+				echo "<th>Edit</th>";
+			echo "</tr>";
+		}
+		else
+		{
+			echo "<tr>";
+				echo "<td>".$value[0]."</td>";
+				echo "<td>".$value[1]."</td>";
+				echo "<td>".$value[2]."</td>";
+				echo "<td>".$value[3]."</td>";
+				echo "<td>".$value[4]."</td>";
+				echo "<td>".$value[5]."</td>";
+				echo "<td>".$value[6]."</td>";
+				echo "<td>".$value[7]."</td>";
+				echo "<td>".$value[8]."</td>";
+				echo "<td>".$value[9]."</td>";
+				echo "<td>".$value[10]."</td>";
+				echo "<td>".$value[11]."</td>";
+				echo "<td>";
+					echo "<form action='edit_inventory.php' method='post' class='col_buttons'>";
+					echo "<input type=hidden name='car_id' value=".$value[0].">";
+					echo "<input type='submit' class='button button2' value='Edit'/>";
+				echo "</form>";
+				echo "</td>";
+			echo "</tr>";
+		}
 	}
 	echo "</table>";
 }
@@ -117,19 +144,128 @@ function admin_inventory_loop($csv_cars)
 function admin_users_loop()
 {
 	$users =  unserialize(file_get_contents('login/private/passwd'));
-	echo "<table>";
-	echo "<tr>";
-		echo "<td>User</td>";
-		echo "<td>Password</td>";
-	echo "</tr>";
-
+	echo "<table id='inventory'>";
+		echo "<tr>";
+			echo "<th>User</td=h>";
+			echo "<th>Password</th>";
+			echo "<th>Edit</th>";
+		echo "</tr>";
 	foreach($users as $key=>$value)
 	{
 		echo "<tr>";
 			echo "<td>".$value['login']."</td>";
 			echo "<td>".$value['passwd']."</td>";
+			echo "<td>";
+				echo "<form action='edit_users.php' method='post' class='col_buttons'>";
+					echo "<input type=hidden name='login' value=".$value['login'].">";
+					echo "<input type='submit' class='button button2' value='Edit'/>";
+				echo "</form>";
+			echo "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
+}
+
+function admin_edit_users_loop($login)
+{
+	$users =  unserialize(file_get_contents('login/private/passwd'));
+	echo "<form action='save_edit_users.php' method='post' class='col_buttons'>";
+	echo "<table id='inventory'>";
+		echo "<tr>";
+			echo "<th>User</td=h>";
+			echo "<th>Password</th>";
+			echo "<th>Delete</th>";
+		echo "</tr>";
+	foreach($users as $key=>$value)
+	{
+		if ($login ===  $value['login'])
+		{
+				echo "<tr>";
+					echo "<td>";
+							echo "<input type=text id=".$value['login']." name='login' value=".$value['login'].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='passwd' value=".$value['passwd'].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=checkbox name='delete' value='yes'>";
+					echo "</td>";
+				echo "</tr>";
+		}
+	}
+	echo "</table>";
+	echo "<input type='submit' class='button button2' value='Save'/>";
+	echo "</form>";
+}
+
+function admin_edit_inventory_loop($car_id)
+{
+	$inventory = array_map('str_getcsv', file('database/data.csv'));
+	echo "<table id='inventory'>";
+	foreach($inventory as $key=>$value)
+	{ 
+		if ($key == 0)
+		{
+			echo "<tr>";
+				echo "<th>".$value[0]."</th>";
+				echo "<th>".$value[1]."</th>";
+				echo "<th>".$value[2]."</th>";
+				echo "<th>".$value[3]."</th>";
+				echo "<th>".$value[4]."</th>";
+				echo "<th>".$value[5]."</th>";
+				echo "<th>".$value[6]."</th>";
+				echo "<th>".$value[7]."</th>";
+				echo "<th>".$value[8]."</th>";
+				echo "<th>".$value[9]."</th>";
+				echo "<th>".$value[10]."</th>";
+				echo "<th>".$value[11]."</th>";
+			echo "</tr>";
+		}
+		if ($car_id ===  $value[0])
+		{
+			echo "<form action='save_edit_users.php' method='post' class='col_buttons'>";
+				echo "<tr>";
+					echo "<td>";
+							echo "<input type=text name='sku' value=".$value[0].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='ownership' value=".$value[1].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='make' value=".$value[2].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='model' value=".$value[3].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='year' value=".$value[4].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='color' value=".$value[5].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='body_style' value=".$value[6].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='milage' value=".$value[7].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='location' value=".$value[8].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='price' value=".$value[9].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='f/d' value=".$value[10].">";
+					echo "</td>";
+					echo "<td>";
+							echo "<input type=text name='image_url' value=".$value[11].">";
+					echo "</td>";
+				echo "</tr>";
+			echo "</form>";
+		}
+	}
+	echo "</table>";
+	echo "<input type='submit' class='button button2' value='Save'/>";
 }
 ?>
