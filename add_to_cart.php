@@ -4,6 +4,11 @@ session_start();
 
 include 'cart_functions.php';
 
+$quantity_cars = $_POST["quantity"]; 
+
+while($quantity_cars)
+{
+
 if (empty($_SESSION['user']))
 {
 	$file_path = "carts/no_user.csv";
@@ -23,4 +28,8 @@ else
 		load_n_modify_csv($file_path);
 	}
 }
+
+$quantity_cars--;
+}
+
 ?>

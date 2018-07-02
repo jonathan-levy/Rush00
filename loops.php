@@ -58,6 +58,7 @@ function	inventory_loop($csv_cars)
 				echo "</div>";
 				echo "<form  action='add_to_cart.php' method='post' class='col_buttons'>";
 					echo "<input type=hidden name='car_id' value=".$value[0].">";
+					echo "<input type='number' name='quantity' min='1' max='5'/>";
 					echo "<input type='submit' class='button button2' value='Add to Cart'/>";
 				echo "</form>";
 			echo "</div>";

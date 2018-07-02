@@ -1,7 +1,10 @@
 sku,ownership,make,model,year,color,body_style,milage,location,price,f/d,image_url
-104,used,Tesla,"Model S P100D",2017,silver,hybrid/green,3420,60185,"$129,800",domesic,https://www.cstatic-images.com/supersized/in/6c70508461064d94921372d861b471bb.jpg
+100,new,BMW,M4,2018,orange,coupe,23,60616,"$76,546",foreign,https://www.cstatic-images.com/supersized/in/dd3bb5ab20041cb4154a03a568b586bd.jpg
+100,new,BMW,M4,2018,orange,coupe,23,60616,"$76,546",foreign,https://www.cstatic-images.com/supersized/in/dd3bb5ab20041cb4154a03a568b586bd.jpg
+100,new,BMW,M4,2018,orange,coupe,23,60616,"$76,546",foreign,https://www.cstatic-images.com/supersized/in/dd3bb5ab20041cb4154a03a568b586bd.jpg
+100,new,BMW,M4,2018,orange,coupe,23,60616,"$76,546",foreign,https://www.cstatic-images.com/supersized/in/dd3bb5ab20041cb4154a03a568b586bd.jpg
 100,new,BMW,M4,2018,orange,coupe,23,60616,"$76,546",foreign,https://www.cstatic-images.com/supersized/in/dd3bb5ab20041cb4154a03a568b586bd.jpg
 101,new,Audi,S4,2018,black,sedan,52,90650,"$61,228",foreign,https://www.cstatic-images.com/supersized/in/037344976dda026163b373290090d2e7.jpg
-103,used,Volkswagen,Eos,2015,white,convertable,34688,92705,"$25,989",foreign,https://www.cstatic-images.com/supersized/in/f197214cf4a6b60475c5a0227901d58c.jpg
 101,new,Audi,S4,2018,black,sedan,52,90650,"$61,228",foreign,https://www.cstatic-images.com/supersized/in/037344976dda026163b373290090d2e7.jpg
-102,used,"Land Rover",Velar,2018,gray,SUV,6469,92660,"$58,810",foreign,https://www.cstatic-images.com/supersized/in/b1beeb62332439e60e47fe3fa11d29f1.jpg
+101,new,Audi,S4,2018,black,sedan,52,90650,"$61,228",foreign,https://www.cstatic-images.com/supersized/in/037344976dda026163b373290090d2e7.jpg
+101,new,Audi,S4,2018,black,sedan,52,90650,"$61,228",foreign,https://www.cstatic-images.com/supersized/in/037344976dda026163b373290090d2e7.jpg
