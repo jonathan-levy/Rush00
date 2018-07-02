@@ -227,4 +227,13 @@ a{
   height: 250px;
 }
 
+#car_quantity_header
+{
+  position: absolute;
+  font-size: 0.5em;
+  margin: 0;
+  padding: 0;
+  color : red;
+}
+
   
