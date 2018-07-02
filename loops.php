@@ -137,6 +137,51 @@ function admin_inventory_loop($csv_cars)
 			echo "</tr>";
 		}
 	}
+	echo "<tr>";
+		echo "<form action='add_inventory.php' method='post' class='col_buttons'>";
+			echo "<td>";
+					echo "<input type=text name='sku' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=text name='ownership' value=''>";
+			echo "</td>";
+			echo "<td>";
+					echo "<input type=text name='make' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=text name='model' value=''>";
+			echo "</td>";
+			echo "<td>";
+					echo "<input type=text name='year' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=text name='color' value=''>";
+			echo "</td>";
+			echo "<td>";
+					echo "<input type=text name='body_style' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=text name='milage' value=''>";
+			echo "</td>";
+			echo "<td>";
+					echo "<input type=text name='location' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=text name='price' value=''>";
+			echo "</td>";
+			echo "<td>";
+					echo "<input type=text name='f/d' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=text name='image_url' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=hidden name='login' value=".$value['login'].">";
+				echo "<input type='submit' class='button button2' value='Add'/>";
+			echo "</td>";
+		echo "</form>";
+	echo "</tr>";
+
 	echo "</table>";
 }
 
@@ -163,6 +208,19 @@ function admin_users_loop()
 			echo "</td>";
 		echo "</tr>";
 	}
+	echo "<tr>";
+		echo "<form action='add_users.php' method='post' class='col_buttons'>";
+			echo "<td>";
+					echo "<input type=text name='login' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type=text name='passwd' value=''>";
+			echo "</td>";
+			echo "<td>";
+				echo "<input type='submit' class='button button2' value='Add'/>";
+			echo "</td>";
+		echo "</form>";
+	echo "</tr>";
 	echo "</table>";
 }
 
@@ -182,13 +240,14 @@ function admin_edit_users_loop($login)
 		{
 				echo "<tr>";
 					echo "<td>";
-							echo "<input type=text id=".$value['login']." name='login' value=".$value['login'].">";
+						echo "<input type=hidden name='original_login' value=".$value['login'].">";
+						echo "<input type=text id=".$value['login']." name='login' value=".$value['login'].">";
 					echo "</td>";
 					echo "<td>";
-							echo "<input type=text name='passwd' value=".$value['passwd'].">";
+						echo "<input type=text name='passwd' value=".$value['passwd'].">";
 					echo "</td>";
 					echo "<td>";
-							echo "<input type=checkbox name='delete' value='yes'>";
+						echo "<input type=checkbox name='delete' value='yes'>";
 					echo "</td>";
 				echo "</tr>";
 		}
@@ -219,14 +278,16 @@ function admin_edit_inventory_loop($car_id)
 				echo "<th>".$value[9]."</th>";
 				echo "<th>".$value[10]."</th>";
 				echo "<th>".$value[11]."</th>";
+				echo "<th>Delete</th>";
 			echo "</tr>";
 		}
 		if ($car_id ===  $value[0])
 		{
-			echo "<form action='save_edit_users.php' method='post' class='col_buttons'>";
+			echo "<form action='save_edit_inventory.php' method='post' class='col_buttons'>";
 				echo "<tr>";
 					echo "<td>";
-							echo "<input type=text name='sku' value=".$value[0].">";
+						echo $value[0];
+							echo "<input type=hidden name='sku' value=".$value[0].">";
 					echo "</td>";
 					echo "<td>";
 							echo "<input type=text name='ownership' value=".$value[1].">";
@@ -261,11 +322,14 @@ function admin_edit_inventory_loop($car_id)
 					echo "<td>";
 							echo "<input type=text name='image_url' value=".$value[11].">";
 					echo "</td>";
+					echo "<td>";
+						echo "<input type=checkbox name='delete' value='yes'>";
+					echo "</td>";
 				echo "</tr>";
-			echo "</form>";
 		}
 	}
 	echo "</table>";
 	echo "<input type='submit' class='button button2' value='Save'/>";
+			echo "</form>";
 }
 ?>
