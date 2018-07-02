@@ -6,5 +6,3 @@ sku,ownership,make,model,year,color,body_style,milage,location,price,f/d,image_u
 104,used,Tesla,"Model S P100D",2017,silver,hybrid/green,3420,60185,"$129,800",domesic,https://www.cstatic-images.com/supersized/in/6c70508461064d94921372d861b471bb.jpg
 105,used,Cadillac,"Escalade EXT",2006,red,truck,114799,76108,"$11,999",domesic,https://www.cstatic-images.com/supersized/in/85be64da05648173fc0d056c33bef745.jpg
 106,used,Porsche,"918 Spyder",2015,silver,"sports car",2829,33409,"$1,899,951",foreign,https://www.cstatic-images.com/supersized/in/5f4f87816a63417e5858fa792f8e268f.jpg
-107,1,2,3,4,5,6,,8,9,10,11
-108`:wq,,,,,,,,,,,
