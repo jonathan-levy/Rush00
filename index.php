@@ -105,6 +105,11 @@ a{
 
 }
 
+
+.card-img {
+    width: 250px;
+    height: 180px;
+}
 	
 
 </style>

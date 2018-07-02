@@ -11,7 +11,7 @@ function	display_top_navbar()
 		echo "<div class='topnav'>";
 			echo "<a class='active' href='/index.php'>Home</a>";
 			echo "<a href='/shop.php'>Inventory</a>";
-			echo "<a href='/cart.php'>Cart</a>";
+			echo "<a href='/cart.php'>Cart </a>";
 			if ($_SESSION['admin'])
 				echo "<a href='/admin.php'>Admin</a>";
 			echo "<a href='/login.php'>Login</a>";
@@ -26,9 +26,13 @@ function	body_style_loop($csv_bs)
 	{
 		if ($key > 0)
 		{
-			echo "<div class='col-3'>";
-					echo "<img  src=".$value[1]." >";
+			echo "<div class='col-3 card' id='car_index'>";
+				echo "<div class='card-image'>";
+					echo "<img class='card-img' src=".$value[1]." >";
+				echo "</div>";
+				echo "<div class='card-link'>";
 					echo "<a href=''>".$value[0]."</a>";
+				echo "</div>";
 			echo "</div>";
 		}
 
@@ -87,6 +91,7 @@ function	display_cart_loop()
 			echo "</div>";
 		}
 	}
+	$_SESSION['user_car_quantity'] = $key;
 }
 
 

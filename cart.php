@@ -17,6 +17,7 @@ hr {
 </style>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="index.css">
 		<title>Basics</title>
 	</head>
@@ -27,7 +28,7 @@ hr {
 			<?php display_cart_loop() ?>
 		</div>
 		<hr>
-		<h2>Total: <?php echo "$".number_format($_SESSION['cart_total']) ?> </h2>
+		<h2>Quantity: <?php echo "<p>".$_SESSION['user_car_quantity']."</p>" ?> Total: <?php echo "$".number_format($_SESSION['cart_total']) ?> </h2>
 		<form  action='purchase.php' method='post' class='col_buttons'>
 			<input type=hidden name='car_id' value=".$value[0].">
 			<input type='submit' class='button button2' value='Purchase'/>
