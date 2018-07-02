@@ -22,7 +22,6 @@
     background-color: #4CAF50;
     color: white;
 }
-
 tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 
@@ -36,8 +35,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 		<h1>🚗 Cars R US  🚗</h1>
 		<?php display_top_navbar(); ?>
 		<br />
-		<?php admin_inventory_loop($csv_cars) ?>
-		<br />
-		<?php admin_users_loop() ?>
+		<p>Leave fields black to delete user</p>
+		<?php admin_edit_users_loop($_POST['login']); ?>
 	</body>
 </html>
