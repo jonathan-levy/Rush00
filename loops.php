@@ -17,7 +17,7 @@ function	display_top_navbar()
 			if ($_SESSION['admin'])
 				echo "<a href='/admin.php'>Admin</a>";
 			echo "<a href='/login.php'>Login</a>";
-			echo "<a href='login/handle_logout.php'>Logout</a>";
+			echo "<a href='login_dir/handle_logout.php'>Logout</a>";
 		echo "</div>";
 }
 
@@ -197,7 +197,7 @@ function admin_inventory_loop($csv_cars)
 
 function admin_users_loop()
 {
-	$users =  unserialize(file_get_contents('login/private/passwd'));
+	$users =  unserialize(file_get_contents('login_dir/private/passwd'));
 	echo "<table id='inventory'>";
 		echo "<tr>";
 			echo "<th>User</td=h>";
@@ -235,7 +235,7 @@ function admin_users_loop()
 
 function admin_edit_users_loop($login)
 {
-	$users =  unserialize(file_get_contents('login/private/passwd'));
+	$users =  unserialize(file_get_contents('login_dir/private/passwd'));
 	echo "<form action='save_edit_users.php' method='post' class='col_buttons'>";
 	echo "<table id='inventory'>";
 		echo "<tr>";

@@ -74,7 +74,7 @@ span.psw {
 	<?php display_top_navbar(); ?>
 <h2>Login Form</h2>
 
-<form action="/login/handle_login.php" method='post' >
+<form action="/login_dir/handle_login.php" method='post' >
   <div class="imgcontainer">
     <img src="https://media.giphy.com/media/rfyhcSaiRsaha/giphy-downsized.gif" alt="Avatar" class="avatar">
   </div>

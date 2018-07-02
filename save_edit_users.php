@@ -2,7 +2,7 @@
 
 session_start();
 
-$users =  unserialize(file_get_contents('login/private/passwd'));
+$users =  unserialize(file_get_contents('login_dir/private/passwd'));
 foreach($users as $key=>$value)
 {
 	if ($_POST['original_login'] ===  $value['login'])
@@ -21,7 +21,7 @@ foreach($users as $key=>$value)
 	}
 }
 
-file_put_contents('login/private/passwd', serialize($users));
+file_put_contents('login_dir/private/passwd', serialize($users));
 header('Location: /admin.php');
 
 ?>
