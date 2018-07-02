@@ -5,12 +5,12 @@ session_start();
 $users =  unserialize(file_get_contents('login/private/passwd'));
 foreach($users as $key=>$value)
 {
-	if ($_POST['login'] ===  $value['login'])
+	if ($_POST['original_login'] ===  $value['login'])
 	{
 		if (strlen($_POST['passwd']) < 15)
 			$passwd = hash('whirlpool', $_POST['passwd']);
 		else
-			$passed = $_POST['passwd'];
+			$passwd = $_POST['passwd'];
 		if ($_POST['delete'] !== 'yes')
 		{
 			$users[$key]['login'] = $_POST['login'];
