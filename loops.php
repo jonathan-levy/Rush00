@@ -21,18 +21,19 @@ function	display_top_navbar()
 
 function	body_style_loop($csv_bs)
 {
+	echo "<div class='col-12'>";
 	foreach($csv_bs as $key=>$value)
 	{
 		if ($key > 0)
 		{
-			echo "<div class='body_styles'>";
-				echo "<div class='body_styles'>";
-					echo "<img src=".$value[1].">";
+			echo "<div class='col-3'>";
+					echo "<img  src=".$value[1]." >";
 					echo "<a href=''>".$value[0]."</a>";
-				echo "</div>";
 			echo "</div>";
 		}
+
 	}
+	echo "</div>";
 }
 
 function	inventory_loop($csv_cars)
